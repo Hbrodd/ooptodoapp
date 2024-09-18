@@ -15,6 +15,11 @@ public class Person {
     public Person() {
     }
 
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public Person(String firstName, String lastName, String email, AppUser credentials) {
         setFirstName(firstName);
         setLastName(lastName);
@@ -25,6 +30,13 @@ public class Person {
 
     public Person(Integer id, String firstName, String lastName, String email, AppUser credentials) {
         this(firstName, lastName, email, credentials);
+        if (id == null) throw new RuntimeException("id is null");
+        this.id = id;
+    }
+
+    public Person(Integer id, String firstName, String lastName) {
+        setFirstName(firstName);
+        setLastName(lastName);
         if (id == null) throw new RuntimeException("id is null");
         this.id = id;
     }
